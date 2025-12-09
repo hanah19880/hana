@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'Markazi Text';
     src: url('img/Markazi_Text/MarkaziText-Regular.ttf') format('truetype');
@@ -667,63 +668,169 @@ header {
       
   
 @media (max-width: 768px) {
- 
     header {
+        display: grid;
         grid-template-columns: auto 1fr auto;
-        height: 70px;
-        padding: 0 3%;
+        align-items: center;
     }
 
-    .logo img {
-        width: 120px;  /* تصغير الشعار */
+    .icons {
+        display: none !important;
+    }
+
+    .menu-btn {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-right: 60%;
+        cursor: pointer;
+        justify-self: start;
+        transition: transform 0.2s ease;
+    }
+
+    .menu-btn:hover {
+        transform: scale(1.2);
+    }
+
+    .divbar {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 60%;
+        background-color: rgba(236, 229, 203, 0.772);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #0003;
+        z-index: 999;
     }
 
     .divbar ul {
+        display: grid;
         gap: 15px;
+        text-align: center;
     }
 
-    .divbar a, .divbar ul li a {
-        font-size: 18px;
+    .divbar ul li a {
+        font-size: 20px;
+        padding: 8px 0;
     }
 
-    .icons a {
-        font-size: 22px;
+    #menu-toggle:checked ~ .divbar {
+        display: block;
+    }
+
+    .logo img {
+        width: 130px;
     }
 
     .home {
-        grid-template-columns: 1fr; /* عمود واحد */
-        padding: 15px;
-        height: auto;
-        color: #264d14;
-    }
-
-    .home h3 {
-        font-size: 32px;
-    }
-
-    .home span {
-        font-size: 20px;
+        grid-template-columns: 1fr;
+        text-align: right;
     }
 
     .home p {
-        font-size: 18px;
+        display: none !important;
     }
 
-    .btn {
-        font-size: 18px;
-        padding: 12px 25px;
-    }
-
-    .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    /* تعديل قسم الأزهار فقط */
+    #decor .products-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* عنصرين بالصف */
+        gap: 20px;
+        padding: 0 10px;
     }
 
     .product-card {
         width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .img-container {
+        overflow: hidden;
+        border-radius: 12px;
+        position: relative;
+        height: 200px;
     }
 
     .img-container img {
-        height: 180px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.4s ease;
+    }
+
+    .img-container:hover img {
+        transform: scale(1.05);
+        border-radius: 12px;
+        top: 0;
+        right: 0;
+        left: auto;
+        bottom: auto;
+        position: absolute;
+    }
+
+    .desc-text {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        font-size: 14px;
+        margin-top: 6px;
+    }
+
+    .img-container:hover .desc-text {
+        max-height: 150px;
+        opacity: 1;
+    }
+
+    .cat-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .best-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .home-content p {
+        display: none !important;
+    }
+
+    .home span {
+        font-size: 18px;
+        color: rgb(13, 52, 9);
+        max-width: 50%;
+        word-wrap: break-word;
+    }
+
+    .footer {
+        text-align: center;
+        padding: 20px 5%;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .footer h3 {
+        font-size: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 15px;
+        padding: 8px;
+    }
+
+    .footer .btn {
+        width: 100%;
     }
 
     #messagesList li {
@@ -744,65 +851,109 @@ header {
     }
 
     header {
-        grid-template-columns: 1fr auto;
-        height: 60px;
-        padding: 0 3%;
+        grid-template-columns: auto 1fr auto;
+        height: 70px;
+        padding: 0 10px;
     }
 
-    .logo img {
+    header .logo img {
         width: 100px;
     }
 
-    .divbar {
-        display: none; /* إخفاء القائمة الكبيرة */
-    }
-
     .menu-btn {
-        display: flex; /* ظهور زر القائمة */
+        margin-right: 60%;
+        gap: 5px;
     }
 
-    .icons a {
-        font-size: 20px;
+    .menu-btn span {
+        width: 25px;
+        height: 3px;
     }
 
-    .home {
-        grid-template-columns: 1fr;
+    .menu-btn:hover {
+        transform: scale(1.3);
+    }
+
+    .divbar {
+        width: 70%;
+        top: 65px;
+        left: 0;
         padding: 10px;
-        height: auto;
+        background-color: rgba(210, 190, 160, 0.95);
+        border-radius: 10px;
+        box-shadow: -3px 0 12px rgba(0,0,0,0.25);
     }
 
-    .home h3 {
-        font-size: 26px;
-    }
-
-    .home span {
+    .divbar ul li a {
         font-size: 18px;
+        padding: 6px 0;
     }
 
-    .home p {
-        font-size: 16px;
-    }
-
-    .btn {
-        font-size: 16px;
-        padding: 10px 20px;
+    .cat-container, .best-container {
+        grid-template-columns: 1fr;
     }
 
     .products-grid {
-        grid-template-columns: 1fr; /* بطاقة واحدة في الصف */
-        gap: 20px;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 10px;
     }
 
     .product-card {
         width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .img-container {
-        height: 150px;
+        height: 180px;
     }
 
     .img-container img {
-        height: 150px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.4s ease;
+    }
+
+    .img-container:hover img {
+        transform: scale(1.05);
+        border-radius: 12px;
+        top: 0;
+        right: 0;
+        left: auto;
+        bottom: auto;
+    }
+
+    .desc-text {
+        display: none !important;
+    }
+
+    .i {
+        display: inline-block !important;
+    }
+
+    .footer {
+        padding: 15px 10px;
+        font-size: 14px;
+    }
+
+    .footer h3 {
+        font-size: 18px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .footer .btn {
+        width: 100%;
     }
 
     #messagesList li {
